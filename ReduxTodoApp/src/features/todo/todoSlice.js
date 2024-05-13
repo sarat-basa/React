@@ -1,9 +1,7 @@
-import { createSlice,nanoid } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    studentList : [
-        {id:2,name:"sarat",email:"sarat@gmail.com",number:7326034257 }
-    ]
+    studentList : []
 }
 
 export const todoSlice = createSlice({
@@ -11,12 +9,11 @@ export const todoSlice = createSlice({
     initialState,
     reducers:{
         addTodo:(state,action) => {
-            console.log(action.payload)
             const student = {
-                id:nanoid(),
+                id:action.payload.id,
                 name:action.payload.name,
                 email:action.payload.email,
-                number:action.payload
+                number:action.payload.number
             }
             state.studentList.push(student)
         },
